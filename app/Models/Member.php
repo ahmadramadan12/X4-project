@@ -21,6 +21,11 @@ public function fitnessclasses()
     return $this->belongsToMany(fitnessClass::class);
 }
 
+public function bmiHistories()
+    {
+        return $this->hasMany(BmiHistory::class);
+    }
+    
 }
 
 
