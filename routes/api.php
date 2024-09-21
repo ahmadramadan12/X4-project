@@ -7,6 +7,7 @@ use App\http\Controllers\API\BookingController;
 use App\http\Controllers\API\FitnessClassController;
 use App\http\Controllers\API\AuthController;
 use App\http\Controllers\API\BmiHistoryController;
+use App\http\Controllers\API\UserProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,4 +39,6 @@ Route::post('/login',[AuthController::class,'login']);
 Route::post('/bmi-histories', [BmiHistoryController::class, 'store']);
 Route::get('/bmi-histories', [BmiHistoryController::class, 'index']);
 
-Route::apiResource('/user-profiles', UserProfileController::class);
+Route::post('/user-profiles',[UserProfileController::class,'store']);
+Route::get('/user-profiles',[UserProfileController::class,'index']);
+
