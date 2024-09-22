@@ -28,26 +28,29 @@ class BmiHistoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $memberId)
+    public function store(Request $request)
     {
-        $validated = $request->validate([
+        // Validate input
+        $request->validate([
+            'member_id' => 'required',
             'weight' => 'required|numeric',
             'height' => 'required|numeric',
         ]);
-
-        // Calculate BMI
-        $bmi = $validated['weight'] / ($validated['height'] * $validated['height']);
-
-        // Save BMI history
-        $bmiRecord = BmiHistory::create([
-            'member_id' => $memberId,
-            'weight' => $validated['weight'],
-            'height' => $validated['height'],
+    
+        // Calculate BMI (weight in kg / height in m^2)
+        $bmi = $request->weight / (($request->height / 100) ** 2);
+    
+        // Save the BMI history record
+        BmiHistory::create([
+            'member_id' => $request->member_id,
+            'weight' => $request->weight,
+            'height' => $request->height,
             'bmi' => $bmi,
         ]);
-
-        return response()->json(['message' => 'BMI record created successfully!', 'bmi' => $bmiRecord]);
+    
+        return response()->json(['message' => 'BMI history recorded successfully']);
     }
+    
 
     
 

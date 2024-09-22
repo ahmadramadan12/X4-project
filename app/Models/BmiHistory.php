@@ -15,10 +15,13 @@ class BmiHistory extends Model
         'member_id',
         'weight',
         'height',
-        'recorded_at'
+        'bmi',          
+        'recorded_at',   
     ];
 
-
+    /**
+     * Get the member that owns the BMI history.
+     */
     public function member()
     {
         return $this->belongsTo(Member::class);

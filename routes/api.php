@@ -36,9 +36,9 @@ Route::post('/fitnessclasses',[FitnessClassController::class,'store']);
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
 
-Route::post('/bmi-histories', [BmiHistoryController::class, 'store']);
-Route::get('/bmi-histories', [BmiHistoryController::class, 'index']);
+Route::post('/bmi_histories', [BmiHistoryController::class, 'store']);
+Route::get('/bmi_histories', [BmiHistoryController::class, 'index']);
 
-Route::post('/user-profiles',[UserProfileController::class,'store']);
-Route::get('/user-profiles',[UserProfileController::class,'index']);
+Route::post('/user_profiles',[UserProfileController::class,'store']);
+Route::get('/user_profiles',[UserProfileController::class,'index']);
 

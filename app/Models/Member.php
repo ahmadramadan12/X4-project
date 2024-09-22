@@ -25,6 +25,11 @@ public function bmiHistories()
     {
         return $this->hasMany(BmiHistory::class);
     }
+
+public function userProfile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
     
 }
 

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->decimal('weight', 5, 2); // Weight in kg
             $table->decimal('height', 5, 2); // Height in meters
-            $table->decimal('bmi', 5, 2); // Calculated BMI
+            $table->decimal('bmi', 5, 2)->default(0);
             $table->timestamp('recorded_at')->default(now());
             $table->timestamps();
 

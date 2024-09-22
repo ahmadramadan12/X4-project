@@ -9,4 +9,13 @@ class UserProfile extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'member_id',
+        'qr_code',
+    ];
+
+    public function member()
+    {
+        return $this->belongsTo(Member::class);
+    }
 }
